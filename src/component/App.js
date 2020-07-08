@@ -1,30 +1,30 @@
 import React from 'react';
-import {INCREMENT, DECREMENT} from '../redux/action-types'
+import * as actions from '../redux/actions';
 
 export default class App extends React.Component {
    
 
     increment = () => {
         const number = this.select.value*1
-        this.props.store.dispatch({type: INCREMENT, data: number})
+        this.props.store.dispatch(actions.incrementCreator(number))
         
     }
 
     decrement = () => {
         const number = this.select.value*1
-        this.props.store.dispatch({type: DECREMENT, data: number})
+        this.props.store.dispatch(actions.decrementCreator(number))
         
     }
     incrementOdd = () => {
         const number = this.select.value*1
         if (this.props.store.getState() % 2 === 1){
-            this.props.store.dispatch({type: INCREMENT, data: number})
+            this.props.store.dispatch(actions.incrementCreator(number))
     }
 }
     decrementAsync = () => {
         const number = this.select.value*1
         setTimeout(() => {
-            this.props.store.dispatch({type: INCREMENT, data: number})
+            this.props.store.dispatch(actions.incrementCreator(number))
         }, 5000);
         
     }

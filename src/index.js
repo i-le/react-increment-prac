@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './component/App';
-import {createStore} from 'redux';
-import {counter} from './redux/reducers'
-
-const store = createStore(counter)
+import store from './redux/store';
 
 
 ReactDOM.render(
